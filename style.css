@@ -1,0 +1,54 @@
+body{
+    background-color: beige;
+}
+
+#gallery{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+}
+
+.photoAndDescr{
+    position: relative;
+    height: 600px
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#text{
+    background-color: rgb(64, 64, 64, 0.8);
+    color: whitesmoke;
+    border-radius: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+
+h1, p{
+    margin: 10px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.leftArrow{
+    width: 60px;
+    transform: rotate(0.5turn);
+}
+
+.rightArrow{
+    width: 60px;
+}
+
+.nav1, .nav2{
+    width: 70px;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+#photoViewer{
+    display: flex;
+    margin-top: 100px;
+}
