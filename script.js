@@ -18,12 +18,12 @@ let imagesData = [
     },
     {
         photo: './images/image4.jpg',
-        title: 'Sunset',
+        title: 'Sunset on the Canal',
         description: 'Dignissim enim sit amet venenatis urna cursus eget nunc. Nibh ipsum consequat nisl vel.'
     },
     {
         photo: './images/image5.jpg',
-        title: 'Where the Wild Things Are',
+        title: 'Bridge to Where the Wild Things Are',
         description: 'Nunc id cursus metus aliquam eleifend mi. Pellentesque habitant morbi tristique senectus.'
     },
     {
@@ -47,6 +47,8 @@ let loadPhoto = (photoNumber) => {
     $('#photo').attr('src', imagesData[photoNumber].photo);
     $('#photo-title').text(imagesData[photoNumber].title);
     $('#photo-description').text(imagesData[photoNumber].description);
+    $('.thumbImage').css('width','50px').css('height','50px');
+    $(`[data-number="${photoNumber}"]`).css('width','60px').css('height','60px');
 }
 
 loadPhoto(currentPhoto);
@@ -69,4 +71,21 @@ $('#leftArrow').click(() => {
         currentPhoto--;
         loadPhoto(currentPhoto);
     }
+});
+
+let thumbnailIndex = 0;
+
+imagesData.forEach(element => {
+    $('#thumbnail-container').append(
+        `<div class="thumbnail">
+            <p class="title">${element.title}</p>
+            <img src="${element.photo}" class="thumbImage" data-number="${thumbnailIndex}">
+        </div>`)
+    thumbnailIndex++;
+});
+
+$('.thumbnail').click((event) => {
+    let index = parseInt($(event.target).attr('data-number'));
+    loadPhoto(index);
+    currentPhoto = index;
 });
